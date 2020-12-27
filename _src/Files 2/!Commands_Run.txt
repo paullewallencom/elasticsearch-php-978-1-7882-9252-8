@@ -1,0 +1,21 @@
+# Connect to Virtual Machine
+vagrant ssh
+
+# Get public signing key
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+
+# Add the repository
+echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
+
+# Install required packages
+sudo apt-get update
+sudo apt-get install default-jdk
+sudo apt-get install elasticsearch
+
+# Stop and Start Elasticsearch Service
+sudo systemctl start elasticsearch
+sudo systemctl stop elasticsearch
+
+# Test Elasticsearch service
+curl 'localhost:9200/?pretty'
+curl '192.168.10.10:9200/?pretty'

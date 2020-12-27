@@ -1,0 +1,35 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/dev
+      to: /home/vagrant/Code
+      type: "nfs"
+
+sites:
+    - map: elasticsearch.app
+      to: /home/vagrant/Code/elasticsearch/public
+
+databases:
+    - elasticsearch
+
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp

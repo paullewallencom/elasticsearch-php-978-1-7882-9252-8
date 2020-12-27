@@ -1,0 +1,16 @@
+# Install Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install Vagrant and Virtual Box
+brew install Caskroom/cask/vagrant
+brew install Caskroom/cask/virtualbox
+
+# Add Vagrant Box
+vagrant box add laravel/homestead
+
+# Checkout Homestead and checkout / initialize
+git checkout v5.1.0
+bash init.sh
+
+# Start our Vagrant machine
+vagrant up

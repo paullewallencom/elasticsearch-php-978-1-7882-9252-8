@@ -1,0 +1,8 @@
+# Create new Laravel Project
+laravel new elasticsearch
+
+# Run composer update
+composer update
+
+# Publish Vendor Files
+php artisan vendor:publish
